@@ -1,0 +1,29 @@
+{
+  // Image flavor: zero-setup. The nix flavor lives in .devcontainer/nix/.
+  "name": "edureel",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:22",
+  "features": {
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+  "postCreateCommand": "curl -fsSL https://bun.sh/install | bash && \"$HOME/.bun/bin/bun\" install && \"$HOME/.bun/bin/bun\" install -g bunx >/dev/null 2>&1 || true; \"$HOME/.bun/bin/bun\" x playwright install chromium --with-deps || bunx --bun playwright install chromium --with-deps",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "astro-build.astro-vscode",
+        "biomejs.biome",
+        "vitest.explorer",
+        "tekumara.typos-vscode",
+        "EditorConfig.EditorConfig",
+        "github.vscode-github-actions"
+      ],
+      "settings": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "biomejs.biome",
+        "editor.codeActionsOnSave": {
+          "source.organizeImports": "explicit",
+          "source.fixAll.biome": "explicit"
+        }
+      }
+    }
+  }
+}

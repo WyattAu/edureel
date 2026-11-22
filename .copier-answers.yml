@@ -1,0 +1,5 @@
+_commit: cd9c5ce
+_src_path: gh:WyattAu/OmniTS-template
+exclude:
+- copier.yml
+project_name: edureel
