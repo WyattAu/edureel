@@ -1,0 +1,27 @@
+[workspace]
+resolver = "2"
+members = ["srs", "topics"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.85"
+license = "Apache-2.0"
+authors = ["Wyatt Au <wyatt_au@protonmail.com>"]
+repository = "https://github.com/WyattAu/edureel"
+
+# Lint policy mirrors the estate graphkit template (single source of truth
+# for both member crates via `[lints] workspace = true`).
+[workspace.lints.rust]
+unsafe_code = "deny"
+missing_docs = "warn"
+
+[workspace.lints.clippy]
+all = { level = "deny", priority = -1 }
+pedantic = { level = "deny", priority = -1 }
+unwrap_used = "deny"
+expect_used = "deny"
+indexing_slicing = "deny"
+panic = "deny"
+module_name_repetitions = "allow"
+multiple_crate_versions = "allow"

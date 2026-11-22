@@ -42,7 +42,7 @@ Surfaces:
 States and transitions:
 - Topic: locked → unlocked → in_progress → mastered
   (mastered = concept's review card at Review-stage stability ≥ threshold).
-- Card (per concept): New → Learning(step 0..n) → Review → lapse→Learning.
+- Card (per concept): New → Learning(step 0..n) → Review → lapse→Relearning(step 0..n) → Review.
 - Session: feed view interleaves due reviews first, then unlocked-frontier
   new topics (INV-6 order: due > frontier-new > nothing; no filler).
 
@@ -68,7 +68,9 @@ NON-GOALS (v0)
 
 OPEN QUESTIONS (do not block v0; log decisions when resolved)
 - Q1 review-tab clip replay vs card-only quiz: default card-only quiz.
-- Q2 lapse policy: default 1 lapse → Learning step 0 (Tachyon parity).
+- Q2 lapse policy: RESOLVED — Review+Again transitions to Relearning step 0
+  (Tachyon parity; Relearning is a first-class state and relearning+good
+  graduates back to Review). Supersedes the earlier "lapse → Learning" note.
 - Q3 wasm vs TS shim for srs in web: default TS shim v0, wasm slice 2.
 
 HANDOFF
