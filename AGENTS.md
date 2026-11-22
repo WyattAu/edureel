@@ -38,7 +38,8 @@ Project: **edureel** — short-form video learning platform (public, Apache-2.0)
 
 ## Commands
 
-$3
+- `make build` / `make test` / `make lint` / `make fmt` / `make typecheck` / `make e2e`
+- `make ci` — full gate; must be green before every push
 
 - `make bench` (perf budget vs committed baseline) / `make bench-update`
 

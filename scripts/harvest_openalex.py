@@ -6,9 +6,10 @@ queries to research/corpus.jsonl (one JSON object per line, abstracts
 rebuilt from the inverted index) and writes research/SEARCH-LOG.md with a
 reproducible record of every query pass.
 
-Reproducible: run `python3 scripts/harvest_openalex.py` any time; queries
-and filters are versioned here. OPENALEX_API_KEY from env raises the rate
-budget; without it we join the polite pool via a mailto parameter.
+Paging uses offset `page=N`, not `cursor=`: OpenAlex gates cursor paging
+past page 1 behind a free API key (observed 2026-11-22); offset paging up
+to 10,000 results needs none. OPENALEX_API_KEY from env (fleet key dir:
+~/.config/opencode/keys/) raises the rate budget when present.
 """
 
 from __future__ import annotations
@@ -125,15 +126,14 @@ def main() -> int:
     for q in QUERIES:
         pages = int(q["pages"])
         total = None
-        cursor = "*"
         fetched = 0
-        for _ in range(pages):
+        for page in range(1, pages + 1):
             params = urllib.parse.urlencode(
                 {
                     "search": q["search"],
                     "select": SELECT,
                     "per-page": 100,
-                    "cursor": cursor,
+                    "page": page,
                     "mailto": MAILTO,
                 }
             )
@@ -143,10 +143,7 @@ def main() -> int:
                 fetched += 1
                 entry = corpus.setdefault(work["id"], compact(work))
                 entry["queries"].append(q["topic"])
-            cursor = data["meta"].get("next_cursor")
-            if not cursor:
-                break
-            time.sleep(1.2)  # polite pool pacing; 401s are burst limits, not auth
+            time.sleep(1.2)  # polite pool pacing
         log_rows.append((q["search"], q["topic"], total or 0, f"{fetched} exported"))
         print(f"{q['search']!r}: total={total} exported={fetched} unique_so_far={len(corpus)}", file=sys.stderr)
 
