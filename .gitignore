@@ -15,3 +15,4 @@ result
 bench/current.tsv
 bench/*-bench.json
 bench/go-bench.txt
+__pycache__/
