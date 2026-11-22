@@ -1,0 +1,25 @@
+{
+  "track": "cs-fundamentals",
+  "topics": [
+    { "id": "binary-numbers", "title": "Binary & hexadecimal", "prerequisites": [] },
+    { "id": "data-representation", "title": "Bits, bytes, ints & chars", "prerequisites": ["binary-numbers"] },
+    { "id": "variables-types", "title": "Variables & types", "prerequisites": [] },
+    { "id": "control-flow", "title": "Conditionals & loops", "prerequisites": ["variables-types"] },
+    { "id": "functions", "title": "Functions & scope", "prerequisites": ["variables-types"] },
+    { "id": "big-o", "title": "Big-O notation", "prerequisites": ["functions"] },
+    { "id": "recursion", "title": "Recursion", "prerequisites": ["functions", "control-flow"] },
+    { "id": "arrays", "title": "Arrays", "prerequisites": ["variables-types", "control-flow"] },
+    { "id": "strings", "title": "Strings", "prerequisites": ["arrays"] },
+    { "id": "linked-lists", "title": "Linked lists", "prerequisites": ["recursion", "big-o"] },
+    { "id": "stacks", "title": "Stacks (LIFO)", "prerequisites": ["arrays", "linked-lists"] },
+    { "id": "queues", "title": "Queues (FIFO)", "prerequisites": ["arrays", "linked-lists"] },
+    { "id": "hash-tables", "title": "Hash tables", "prerequisites": ["arrays", "big-o"] },
+    { "id": "sorting-basics", "title": "Sorting: bubble to merge", "prerequisites": ["arrays", "big-o"] },
+    { "id": "binary-search", "title": "Binary search", "prerequisites": ["sorting-basics", "arrays"] },
+    { "id": "trees", "title": "Trees & traversals", "prerequisites": ["recursion", "linked-lists"] },
+    { "id": "bst", "title": "Binary search trees", "prerequisites": ["trees", "binary-search"] },
+    { "id": "heaps", "title": "Heaps & priority queues", "prerequisites": ["trees", "arrays"] },
+    { "id": "graphs", "title": "Graphs, BFS & DFS", "prerequisites": ["trees", "queues", "stacks"] },
+    { "id": "dynamic-programming", "title": "Intro to dynamic programming", "prerequisites": ["recursion", "big-o"] }
+  ]
+}

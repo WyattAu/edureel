@@ -1,0 +1,70 @@
+{
+  "clips": [
+    {
+      "id": "clip-binary-1",
+      "topic": "binary-numbers",
+      "kind": "card",
+      "title": "Why computers count 1, 10, 11",
+      "body_markdown": "Binary is place value with only two digits. In base 10 each column is worth 10x the one to its right; in base 2 each column is worth 2x: 1, 2, 4, 8, 16.\n\nSo `1011` in binary = 8 + 0 + 2 + 1 = **11**.\n\nHexadecimal (base 16) exists for humans, not machines: one hex digit encodes exactly four bits, so `0xFF` = `11111111` = 255. Two digits, one byte — that's why you see hex everywhere in memory dumps and colors.",
+      "duration_seconds": 45,
+      "license": "CC-BY-4.0",
+      "source": "edureel original",
+      "attribution": "edureel seed authors"
+    },
+    {
+      "id": "clip-datarep-1",
+      "topic": "data-representation",
+      "kind": "card",
+      "title": "How a byte becomes a letter",
+      "body_markdown": "An unsigned 8-bit byte holds 0–255. Characters are an agreed mapping on top: ASCII says 65 = 'A', 97 = 'a'. Unicode assigns *code points* (e.g. U+0041), and UTF-8 is the storage scheme — it uses 1 byte for ASCII and up to 4 for the rest.\n\nSigned integers use two's complement: the top bit's value is negative, so `1111` in 4-bit signed = -8 + 4 + 2 + 1 = **-1**. One addition circuit handles both + and −. That single design choice is why `char` and `int` are just differently-sized bit buckets.",
+      "duration_seconds": 55,
+      "license": "CC-BY-4.0",
+      "source": "edureel original",
+      "attribution": "edureel seed authors"
+    },
+    {
+      "id": "clip-vars-1",
+      "topic": "variables-types",
+      "kind": "card",
+      "title": "A variable is a named box, a type is the box's shape",
+      "body_markdown": "A variable binds a *name* to a *value* stored somewhere in memory. The type tells the language two things: how to interpret the bits, and which operations are legal.\n\n```python\nage = 27        # int: numeric bits\nname = \"Ada\"   # str: sequence of chars\n```\n\nStatically typed languages check shapes before running; dynamically typed languages check while running. Same boxes, different enforcement time. Most beginner bugs are shape mismatches: adding `\"3\" + 4` fails not because the values are wrong but because the boxes are.",
+      "duration_seconds": 50,
+      "license": "CC-BY-4.0",
+      "source": "edureel original",
+      "attribution": "edureel seed authors"
+    },
+    {
+      "id": "clip-flow-1",
+      "topic": "control-flow",
+      "kind": "card",
+      "title": "Loops are just conditionals that jump backwards",
+      "body_markdown": "Every loop reduces to three parts: an initialization, a condition, and a step that changes something the condition checks.\n\n```python\ni = 0            # init\nwhile i < 3:     # condition\n    print(i)\n    i += 1       # step\n```\n\nForget the step and the condition never becomes false — the classic infinite loop. `for` loops bundle the three parts into one line; `while` keeps them visible. If you can write the init/condition/step triple by hand, no loop syntax in any language will surprise you.",
+      "duration_seconds": 45,
+      "license": "CC-BY-4.0",
+      "source": "edureel original",
+      "attribution": "edureel seed authors"
+    },
+    {
+      "id": "clip-func-1",
+      "topic": "functions",
+      "kind": "card",
+      "title": "Functions: name an algorithm, hide its variables",
+      "body_markdown": "A function packages a computation behind a name, takes inputs (parameters), and returns an output. The decisive property is *scope*: variables created inside the function don't exist outside it.\n\n```python\ndef double(n):\n    result = n * 2\n    return result\n\nx = double(4)   # 8\n# result is gone here\n```\n\nThat hiding is why functions compose: `double(double(4))` works regardless of the internals. Scope is also the source of classic bugs — reaching for a global instead of passing a parameter couples the function to the outside world.",
+      "duration_seconds": 50,
+      "license": "CC-BY-4.0",
+      "source": "edureel original",
+      "attribution": "edureel seed authors"
+    },
+    {
+      "id": "clip-bigo-1",
+      "topic": "big-o",
+      "kind": "card",
+      "title": "Big-O asks: how does work grow when input grows?",
+      "body_markdown": "Big-O ignores constants and machine speed; it describes the *shape* of growth as input size n grows.\n\n- O(1): same work regardless of n — array index lookup\n- O(log n): doubling n adds one step — binary search\n- O(n): double the input, double the work — one loop\n- O(n²): nested loops over the input — compare every pair\n\n```python\nfor x in items:        # O(n)\n    for y in items:    # O(n) again → O(n²)\n        compare(x, y)\n```\n\nThe peephole rule: count how many times you touch the input. Sequential touches multiply, nested touches do too.",
+      "duration_seconds": 55,
+      "license": "CC-BY-4.0",
+      "source": "edureel original",
+      "attribution": "edureel seed authors"
+    }
+  ]
+}

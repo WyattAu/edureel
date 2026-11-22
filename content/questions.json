@@ -1,0 +1,61 @@
+{
+  "questions": [
+    {
+      "clip_id": "clip-binary-1",
+      "prompt": "What is binary 1011 in decimal?",
+      "options": ["11", "13", "9", "1011"],
+      "answer_index": 0,
+      "misconception": "13 comes from reading the columns as 8+4+1 (skipping the zero bit is fine, but miscounting column values as 1,2,4,8 right-to-left gives 13 if you include a phantom 4). Recompute: columns are 8,4,2,1 → 8+0+2+1."
+    },
+    {
+      "clip_id": "clip-datarep-1",
+      "prompt": "In 4-bit two's complement, what is 1111?",
+      "options": ["-1", "15", "7", "-15"],
+      "answer_index": 0,
+      "misconception": "15 is the unsigned reading — correct only without a sign bit. Two's complement weights the top bit as -8: -8+4+2+1 = -1."
+    },
+    {
+      "clip_id": "clip-vars-1",
+      "prompt": "Why does \"3\" + 4 fail in most languages?",
+      "options": [
+        "The types don't match: str and int have different shapes",
+        "3 is too large to store",
+        "The + operator doesn't exist for numbers",
+        "Quoted strings are read-only"
+      ],
+      "answer_index": 0,
+      "misconception": "The values look compatible as numerals, but the type is the enforcement unit — adding differently-shaped boxes is the error, not the digits."
+    },
+    {
+      "clip_id": "clip-flow-1",
+      "prompt": "A while-loop runs forever. Which part is almost certainly missing or wrong?",
+      "options": [
+        "The step that changes something the condition checks",
+        "The initialization",
+        "The print statement",
+        "The condition itself being true"
+      ],
+      "answer_index": 0,
+      "misconception": "A true condition isn't a bug by itself — it must be allowed to *become* false. That's the step's job; init runs once and can't fix a never-changing state."
+    },
+    {
+      "clip_id": "clip-func-1",
+      "prompt": "What property of functions makes double(double(4)) safe to write?",
+      "options": [
+        "Scope: internal variables like result don't leak between calls",
+        "Functions always return numbers",
+        "Nested calls share the same variables",
+        "The compiler rewrites nested calls into one call"
+      ],
+      "answer_index": 0,
+      "misconception": "If internals leaked, the outer call would collide with the inner call's result variable. Composition works because each invocation gets its own scope."
+    },
+    {
+      "clip_id": "clip-bigo-1",
+      "prompt": "Doubling the input roughly doubles the runtime. What's the growth shape?",
+      "options": ["O(n)", "O(1)", "O(log n)", "O(n²)"],
+      "answer_index": 0,
+      "misconception": "O(log n) would barely move when n doubles (one extra step); O(n²) would quadruple. Linear scaling — double in, double out — is O(n)."
+    }
+  ]
+}

@@ -15,6 +15,10 @@ updated: 2026-11-22  rev: 3
 | 7 | bun install && make ci green | done | nix develop -c make ci: typecheck 0 errors, tests 1/1; first-run hang was cold-start contention, clean on warm env |; |
 | 8 | git init + gh repo create --public + first push | done | github.com/WyattAu/edureel public; af26a4b, 5868a3d pushed | keep pushing per flap rule |
 | 9 | Register in engineering-standards estate.yml | done | 7cc3289 pushed; YAML validated |; |
+| 10 | Product brief + capability contract | done | PRODUCT-BRIEF.md, docs/product/CAPABILITY.md; commit 468297a |; |
+| 11 | S1+S2: crates/srs (Tachyon port) + crates/topics (graphkit) | active | subagent dispatched (general) | verify cargo test |
+| 12 | content/ seed data (topics.json, clips.json, questions.json) | active | inline while subagent runs | CC-BY original micro-lessons, license-unverified externals excluded |
+| 13 | S3: web feed + recall gate + review tab | blocked | blocked by #11 API + #12 data | dispatch after |
 
 ## Dogfood inventory (decided)
 - graphkit (Rust) — topic prerequisite DAG. Tachyon flashcards/srs.rs — simplified FSRS (extract/PR). web-estate constitution — TS+SolidJS+Bun, @est/* kits. feedkit — partial (adapters). License: Apache-2.0 (estate default, carried by template).
